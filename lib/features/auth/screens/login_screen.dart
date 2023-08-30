@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_clone/core/common/sign_up_buttom.dart';
+import 'package:reddit_clone/core/constants/constants.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -9,51 +11,50 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Image.asset(
-          'assets/images/logo.png',
+          Constants.logoPath,
           height: 45,
         ),
         actions: [
-          TextButton(onPressed: () {}, child: const Text('Skip')),
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Skip',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         child: Column(
           children: [
+            const SizedBox(height: 30),
             //text
             const Text(
               'Dive into anything',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.5,
+              ),
             ),
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
 
             //login emote
-            Image.asset('assets/images/loginEmote.png'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                Constants.loginEmotePath,
+                height: 400,
+              ),
+            ),
             const SizedBox(
               height: 30,
             ),
             //login button
-            ElevatedButton(
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Image.asset(
-                      'assets/images/google.png',
-                      height: 50,
-                    ),
-                  ),
-                  const Text(
-                    'Continue with Google',
-                    style: TextStyle(color: Colors.white70),
-                  ),
-                ],
-              ),
-            ),
+            const SignUpButton(),
           ],
         ),
       ),
